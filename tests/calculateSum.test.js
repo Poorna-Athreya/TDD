@@ -1,14 +1,14 @@
-// Add function
+// Add 2 numbers Function
 
-// success cases
-//  should give the sum of 2 numbers
-//  should return the input directly only 1 number is given
-//  should return the sum of first 2 numbers when more than 2 inputs are given
+// Success cases:
+// Should give the sum of 2 numbers
+// Should return the input directly only 1 number is given
+// Should return the sum of first 2 numbers when more than 2 inputs are given
 
-// failure cases
-//  should throw invalid input when array given as input
-//  should throw invalid input when string given as input
-//  should throw error when integer raange exceeded
+// Failure cases:
+// Should throw invalid input when array given as input
+// Should throw invalid input when string given as input
+// Should throw error when integer raange exceeded
 
 const addNums = require('../calculateSum');
 
@@ -25,6 +25,18 @@ describe('Add function', function() {
         const sum = addNums(2,3,4,5);
         expect(sum).toBe(5);
     });
+
     it('Should throw invalid input when string given as input', function() {
         const sum = addNums(2,"two");
-        throw new error("I
+        expect(sum).toBe("Invalid input, please enter 2 numbers!");
+    });    
+    it('Should throw invalid input when array given as input', function() {
+        const sum = addNums([2,3,4]);
+        expect(sum).toBe("Invalid input, please enter 2 numbers!");
+    });  
+    it('Should throw error when integer range is exceeded', function() {
+        const sum = addNums(50000000000000000000000000000001234567891011121314151617181920, 9999999999999999999999999999999999999999999999246810121416182022);
+        expect(sum).toBe("Input number is too large, please enter smaller values!");
+    });
+});
+
